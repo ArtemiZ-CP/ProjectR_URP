@@ -1,0 +1,102 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" text="Random Generator" style="-unity-text-align: upper-center; font-size: 20px; -unity-font-style: bold; padding-top: 12px; padding-right: 12px; padding-bottom: 12px; padding-left: 12px; background-color: rgba(0, 0, 0, 0.27); margin-top: 15px; margin-right: 15px; margin-bottom: 15px; margin-left: 15px; border-left-color: rgb(117, 0, 255); border-right-color: rgb(117, 0, 255); border-top-color: rgb(117, 0, 255); border-bottom-color: rgb(117, 0, 255); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px;" />
+    <uie:PropertyField binding-path="_obstacleParent" name="ObstacleParent" />
+    <ui:Foldout text="Settings" name="Settings" style="margin-top: 8px;">
+        <uie:PropertyField binding-path="_minLengthOfRoad" focusable="true" name="MinLengthOfRoad" tooltip="MinLengthOfRoad" />
+        <uie:PropertyField binding-path="_minStraightLengthOfRoadAfterChangeType" focusable="true" name="MinStraightLengthOfRoadAfterChangeType" tooltip="MinStraightLengthOfRoadAfterChangeType" />
+        <uie:PropertyField binding-path="_minLengthOfSecondFloor" focusable="true" name="MinLengthOfSecondFloor" tooltip="MinLengthOfSecondFloor" />
+        <uie:PropertyField binding-path="_minStraightLengthOfSecondFloorAfterChangeType" focusable="true" name="MinStraightLengthOfSecondFloorAfterChangeType" tooltip="MinStraightLengthOfSecondFloorAfterChangeType" />
+        <uie:PropertyField binding-path="_minLengthAfterChangeLine" focusable="true" name="MinLengthAfterChangeLine" tooltip="MinLengthAfterChangeLine" />
+        <uie:PropertyField binding-path="_minRoadLengthNearObstacleOnRoad" focusable="true" name="MinRoadLengthNearObstacleOnRoad" tooltip="MinRoadLengthNearObstacleOnRoad" />
+        <uie:PropertyField binding-path="_cancelRoadAfterChangeLine" focusable="true" name="CancelRoadAfterChangeLine" tooltip="CancelRoadAfterChangeLine" />
+    </ui:Foldout>
+    <ui:VisualElement name="RandomGeneration" style="flex-direction: column; flex-wrap: nowrap; border-left-color: rgb(0, 255, 235); border-right-color: rgb(0, 255, 235); border-top-color: rgb(0, 255, 235); border-bottom-color: rgb(0, 255, 235); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; margin-top: 10px; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px;">
+        <ui:Label tabindex="-1" text="Random Generation Chances" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" style="-unity-font-style: bold; font-size: 15px; margin-bottom: 10px;" />
+        <ui:Foldout text="ChanceToChangeRoad" name="ChanceToChangeRoad" style="padding-left: 10px;">
+            <ui:VisualElement name="ChanceToChangeRoad" style="flex-grow: 1; margin-top: 0; border-left-color: rgba(255, 255, 255, 0.5); border-right-color: rgba(255, 255, 255, 0.5); border-top-color: rgba(255, 255, 255, 0.5); border-bottom-color: rgba(255, 255, 255, 0.5); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; padding-top: 7px; padding-right: 7px; padding-bottom: 7px; padding-left: 7px; margin-right: 0; margin-bottom: 10px; margin-left: -23px;">
+                <ui:Label tabindex="-1" text="Change Road Line" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Lable" style="-unity-font-style: normal; font-size: 12px; margin-bottom: 10px; -unity-text-align: upper-center;" />
+                <ui:VisualElement name="Value" style="flex-grow: 1; flex-direction: row;">
+                    <ui:Toggle label="Fix" binding-path="_fixChanceToChangeRoad" style="width: 157px; flex-direction: row-reverse; margin-right: 0; align-items: auto;" />
+                    <ui:Slider picking-mode="Ignore" value="0" high-value="1" show-input-field="true" binding-path="_chanceToChangeRoad" name="Value1" style="left: -110px; align-items: flex-start; justify-content: flex-end; align-self: flex-start; margin-right: 54px;" />
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-grow: 1; flex-direction: row; margin-top: 10px;">
+                    <ui:Label tabindex="-1" text="Min" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" style="width: 10%; margin-left: 8%;" />
+                    <ui:Label tabindex="-1" text="Max" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" style="width: 10%; margin-right: 0; margin-left: 50%;" />
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
+                    <ui:Slider picking-mode="Ignore" value="0" high-value="1" show-input-field="true" binding-path="_chanceToChangeRoadMin" focusable="true" name="Min1" style="width: 40%; position: relative; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;" />
+                    <ui:Slider picking-mode="Ignore" value="0" high-value="1" show-input-field="true" binding-path="_chanceToChangeRoadMax" focusable="true" name="Max1" style="width: 40%; margin-left: 20%; margin-top: 0; margin-right: 0; margin-bottom: 0;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:Foldout>
+        <ui:Foldout text="ChanceToChangeRoadType" name="ChanceToChangeRoadType" style="padding-left: 10px;">
+            <ui:VisualElement name="ChanceToChangeRoadType" style="flex-grow: 1; margin-top: 0; border-left-color: rgba(255, 255, 255, 0.5); border-right-color: rgba(255, 255, 255, 0.5); border-top-color: rgba(255, 255, 255, 0.5); border-bottom-color: rgba(255, 255, 255, 0.25); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; padding-top: 7px; padding-right: 7px; padding-bottom: 7px; padding-left: 7px; margin-right: 0; margin-bottom: -1px; margin-left: -23px;">
+                <ui:Label tabindex="-1" text="Change Road Type" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Lable" style="-unity-font-style: normal; font-size: 12px; margin-bottom: 10px; -unity-text-align: upper-center;" />
+                <ui:VisualElement name="Value" style="flex-grow: 1; flex-direction: row;">
+                    <ui:Toggle label="Fix" binding-path="_fixChanceToChangeRoadType" style="width: 157px; flex-direction: row-reverse; margin-right: 0; align-items: auto;" />
+                    <ui:Slider picking-mode="Ignore" value="0" high-value="1" show-input-field="true" binding-path="_chanceToChangeRoadType" name="Value2" style="left: -110px; align-items: flex-start; justify-content: flex-end; align-self: flex-start; margin-right: 54px;" />
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-grow: 1; flex-direction: row; margin-top: 10px;">
+                    <ui:Label tabindex="-1" text="Min" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" style="width: 10%; margin-left: 8%;" />
+                    <ui:Label tabindex="-1" text="Max" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" style="width: 10%; margin-right: 0; margin-left: 50%;" />
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
+                    <ui:Slider picking-mode="Ignore" value="0" high-value="1" show-input-field="true" binding-path="_chanceToChangeRoadTypeMin" focusable="true" name="Min2" style="width: 40%; position: relative; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;" />
+                    <ui:Slider picking-mode="Ignore" value="0" high-value="1" show-input-field="true" binding-path="_chanceToChangeRoadTypeMax" focusable="true" name="Max2" style="width: 40%; margin-left: 20%; margin-top: 0; margin-right: 0; margin-bottom: 0;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="ChanceToChangeRoadTypeToSecondFloor" style="flex-grow: 1; margin-top: 0; border-left-color: rgba(255, 255, 255, 0.5); border-right-color: rgba(255, 255, 255, 0.5); border-top-color: rgba(255, 255, 255, 0.25); border-bottom-color: rgba(255, 255, 255, 0.5); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; padding-top: 7px; padding-right: 7px; padding-bottom: 7px; padding-left: 7px; margin-right: 0; margin-bottom: 10px; margin-left: -23px;">
+                <ui:Label tabindex="-1" text="Change Road Type To Second Floor" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ChanceToChangeRoadTypeToSecondFloor" style="-unity-font-style: normal; font-size: 12px; margin-bottom: 10px; -unity-text-align: upper-center;" />
+                <ui:VisualElement name="Value" style="flex-grow: 1; flex-direction: row;">
+                    <ui:Toggle label="Fix" binding-path="_fixChanceToChangeRoadTypeToSecondFloor" style="width: 157px; flex-direction: row-reverse; margin-right: 0; align-items: auto;" />
+                    <ui:Slider picking-mode="Ignore" value="0" high-value="1" show-input-field="true" binding-path="_chanceToChangeRoadTypeToSecondFloor" name="Value3" style="left: -110px; align-items: flex-start; justify-content: flex-end; align-self: flex-start; margin-right: 54px;" />
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-grow: 1; flex-direction: row; margin-top: 10px;">
+                    <ui:Label tabindex="-1" text="Min" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" style="width: 10%; margin-left: 8%;" />
+                    <ui:Label tabindex="-1" text="Max" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" style="width: 10%; margin-right: 0; margin-left: 50%;" />
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
+                    <ui:Slider picking-mode="Ignore" value="0" high-value="1" show-input-field="true" binding-path="_chanceToChangeRoadTypeToSecondFloorMin" focusable="true" name="Min3" style="width: 40%; position: relative; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;" />
+                    <ui:Slider picking-mode="Ignore" value="0" high-value="1" show-input-field="true" binding-path="_chanceToChangeRoadTypeToSecondFloorMax" focusable="true" name="Max3" style="width: 40%; margin-left: 20%; margin-top: 0; margin-right: 0; margin-bottom: 0;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:Foldout>
+        <ui:Foldout text="ChanceToChangeFloor" name="ChanceToChangeFloor" style="padding-left: 10px;">
+            <ui:VisualElement name="ChanceToChangeFloor" tooltip="Chance to spawn Upper or Lower obstacle or remove cell on second floor" style="flex-grow: 1; margin-top: 0; border-left-color: rgba(255, 255, 255, 0.5); border-right-color: rgba(255, 255, 255, 0.5); border-top-color: rgba(255, 255, 255, 0.5); border-bottom-color: rgba(255, 255, 255, 0.5); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; padding-top: 7px; padding-right: 7px; padding-bottom: 7px; padding-left: 7px; margin-right: 0; margin-bottom: 10px; margin-left: -23px;">
+                <ui:Label tabindex="-1" text="Spawn Obstacle On Road" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Lable" style="-unity-font-style: normal; font-size: 12px; margin-bottom: 10px; -unity-text-align: upper-center;" />
+                <ui:VisualElement name="Value" style="flex-grow: 1; flex-direction: row;">
+                    <ui:Toggle label="Fix" binding-path="_fixChanceToSpawnObstacleOnRoad" style="width: 157px; flex-direction: row-reverse; margin-right: 0; align-items: auto;" />
+                    <ui:Slider picking-mode="Ignore" value="0" high-value="1" show-input-field="true" binding-path="_chanceToSpawnObstacleOnRoad" name="Value4" style="left: -110px; align-items: flex-start; justify-content: flex-end; align-self: flex-start; margin-right: 54px;" />
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-grow: 1; flex-direction: row; margin-top: 10px;">
+                    <ui:Label tabindex="-1" text="Min" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" style="width: 10%; margin-left: 8%;" />
+                    <ui:Label tabindex="-1" text="Max" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" style="width: 10%; margin-right: 0; margin-left: 50%;" />
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
+                    <ui:Slider picking-mode="Ignore" value="0" high-value="1" show-input-field="true" binding-path="_chanceToSpawnObstacleOnRoadMin" focusable="true" name="Min4" style="width: 40%; position: relative; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;" />
+                    <ui:Slider picking-mode="Ignore" value="0" high-value="1" show-input-field="true" binding-path="_chanceToSpawnObstacleOnRoadMax" focusable="true" name="Max4" style="width: 40%; margin-left: 20%; margin-top: 0; margin-right: 0; margin-bottom: 0;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:Foldout>
+        <ui:Foldout text="ChanceToSpawnFullObstacle" name="ChanceToSpawnFullObstacle" style="padding-left: 10px;">
+            <ui:VisualElement name="ChanceToSpawnFullObstacle" style="flex-grow: 1; margin-top: 0; border-left-color: rgba(255, 255, 255, 0.5); border-right-color: rgba(255, 255, 255, 0.5); border-top-color: rgba(255, 255, 255, 0.5); border-bottom-color: rgba(255, 255, 255, 0.5); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; padding-top: 7px; padding-right: 7px; padding-bottom: 7px; padding-left: 7px; margin-right: 0; margin-bottom: 0; margin-left: -23px;">
+                <ui:Label tabindex="-1" text="Spawn Full Obstacle" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Lable" style="-unity-font-style: normal; font-size: 12px; margin-bottom: 10px; -unity-text-align: upper-center;" />
+                <ui:VisualElement name="Value" style="flex-grow: 1; flex-direction: row;">
+                    <ui:Toggle label="Fix" binding-path="_fixChanceToSpawnFullObstacle" style="width: 157px; flex-direction: row-reverse; margin-right: 0; align-items: auto;" />
+                    <ui:Slider picking-mode="Ignore" value="0" high-value="1" show-input-field="true" binding-path="_chanceToSpawnFullObstacle" name="Value5" style="left: -110px; align-items: flex-start; justify-content: flex-end; align-self: flex-start; margin-right: 54px;" />
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-grow: 1; flex-direction: row; margin-top: 10px;">
+                    <ui:Label tabindex="-1" text="Min" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" style="width: 10%; margin-left: 8%;" />
+                    <ui:Label tabindex="-1" text="Max" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" style="width: 10%; margin-right: 0; margin-left: 50%;" />
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
+                    <ui:Slider picking-mode="Ignore" value="0" high-value="1" show-input-field="true" binding-path="_chanceToSpawnFullObstacleMin" focusable="true" name="Min5" style="width: 40%; position: relative; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;" />
+                    <ui:Slider picking-mode="Ignore" value="0" high-value="1" show-input-field="true" binding-path="_chanceToSpawnFullObstacleMax" focusable="true" name="Max5" style="width: 40%; margin-left: 20%; margin-top: 0; margin-right: 0; margin-bottom: 0;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:Foldout>
+        <ui:Button text="Generate" parse-escape-sequences="true" display-tooltip-when-elided="true" focusable="false" usage-hints="None" name="Generate" style="height: 56px; font-size: 20px; margin-top: 10px; margin-right: 0; margin-bottom: 0; margin-left: 0;" />
+        <ui:Button text="Random" parse-escape-sequences="true" display-tooltip-when-elided="true" focusable="false" usage-hints="None" name="RandomGenerate" style="height: 56px; font-size: 20px; margin-top: 10px; margin-right: 0; margin-bottom: 0; margin-left: 0;" />
+        <ui:Button text="Clear" parse-escape-sequences="true" display-tooltip-when-elided="true" focusable="false" usage-hints="None" name="DestroyAllObstacles" style="height: 56px; font-size: 20px; margin-top: 10px; margin-right: 0; margin-bottom: 0; margin-left: 0;" />
+    </ui:VisualElement>
+</ui:UXML>

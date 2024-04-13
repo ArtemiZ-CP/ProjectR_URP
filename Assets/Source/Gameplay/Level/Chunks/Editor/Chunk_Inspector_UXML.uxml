@@ -1,0 +1,27 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <ui:Label tabindex="-1" text="Chunk Editor" parse-escape-sequences="true" display-tooltip-when-elided="true" style="-unity-text-align: upper-center; font-size: 20px; -unity-font-style: bold; padding-top: 12px; padding-right: 12px; padding-bottom: 12px; padding-left: 12px; background-color: rgba(0, 0, 0, 0.27); margin-top: 15px; margin-right: 15px; margin-bottom: 15px; margin-left: 15px; border-left-color: rgb(117, 0, 255); border-right-color: rgb(117, 0, 255); border-top-color: rgb(117, 0, 255); border-bottom-color: rgb(117, 0, 255); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px;" />
+    <ui:Foldout text="Settings" name="Settings">
+        <uie:PropertyField binding-path="_roadsParent" label="Roads parent" name="Roads" />
+        <uie:PropertyField binding-path="_linesParent" label="Lines parent" name="Lines" />
+        <uie:PropertyField binding-path="_chunkSettings" name="ChunkSettings" />
+        <uie:PropertyField binding-path="_roadPrefab" name="ChunkSettings" />
+    </ui:Foldout>
+    <ui:VisualElement name="Road" style="flex-grow: 1; height: auto; max-height: none; flex-direction: column; margin-bottom: 10px;">
+        <ui:Label tabindex="-1" text="Grid" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 15px; -unity-font-style: bold; margin-bottom: 10px; margin-top: 10px;" />
+        <ui:VisualElement style="flex-grow: 1; flex-direction: column; align-items: stretch; justify-content: flex-start; align-self: auto; width: 100%;">
+            <ui:Toggle label="Show grid" binding-path="_showGrid" focusable="false" value="false" name="Toggle" style="align-self: flex-start; flex-direction: row-reverse; margin-right: 0; align-items: flex-start; margin-top: 1px; width: 145px; height: 20px; justify-content: flex-start; -unity-text-align: middle-left;" />
+            <ui:IntegerField binding-path="_chunksCount" name="RoadLength" focusable="true" label="Road Length" style="align-self: flex-start; flex-direction: row; align-items: flex-start; height: 20px; margin-right: 126px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="Obstacle" style="flex-direction: column; flex-wrap: nowrap; border-left-color: rgb(0, 255, 235); border-right-color: rgb(0, 255, 235); border-top-color: rgb(0, 255, 235); border-bottom-color: rgb(0, 255, 235); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px;">
+        <ui:Label tabindex="-1" text="Obstacles" parse-escape-sequences="true" display-tooltip-when-elided="true" style="-unity-font-style: bold; font-size: 15px; margin-bottom: 10px;" />
+        <uie:PropertyField binding-path="_parentObstacle" label="Obstacle parent" />
+        <ui:Button text="Spawn Object" parse-escape-sequences="true" display-tooltip-when-elided="true" focusable="false" usage-hints="None" name="SpawnObject" style="height: 56px; font-size: 20px; margin-top: 10px; margin-right: 0; margin-bottom: 0; margin-left: 0;" />
+    </ui:VisualElement>
+    <ui:VisualElement name="Powerups" style="flex-direction: column; flex-wrap: nowrap; border-left-color: rgb(0, 255, 235); border-right-color: rgb(0, 255, 235); border-top-color: rgb(0, 255, 235); border-bottom-color: rgb(0, 255, 235); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; margin-top: 10px; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px;">
+        <ui:Label tabindex="-1" text="PowerUps" parse-escape-sequences="true" display-tooltip-when-elided="true" style="-unity-font-style: bold; font-size: 15px; margin-bottom: 10px;" />
+        <uie:PropertyField binding-path="_parentPowerup" />
+        <ui:Button text="Spawn Power Up" parse-escape-sequences="true" display-tooltip-when-elided="true" focusable="false" usage-hints="None" name="SpawnPowerUp" style="height: 56px; font-size: 20px; margin-top: 10px; margin-right: 0; margin-bottom: 0; margin-left: 0;" />
+    </ui:VisualElement>
+    <ui:Button text="Reload ALL" parse-escape-sequences="true" display-tooltip-when-elided="true" focusable="false" usage-hints="None" name="Reload" style="height: 56px; font-size: 20px; margin-top: 27px; margin-right: 27px; margin-bottom: 27px; margin-left: 27px;" />
+</ui:UXML>

@@ -1,0 +1,4 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <uie:PropertyField binding-path="_chunkCellInfos" label="ChunkCellInfos" name="ChunkCellInfos" style="margin-bottom: 10px;" />
+    <ui:Slider picking-mode="Ignore" value="0.5" high-value="1" binding-path="_viewScale" show-input-field="false" inverted="false" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;" />
+</ui:UXML>

@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eee11ccb2164b246bd6f3f7bb952c98, type: 3}
+  m_Name: ChunkSettings
+  m_EditorClassIdentifier: 
+  _roadOffset: 3.33333
+  _roadPrefab: {fileID: 4305492550736776657, guid: 93317e64bcf21f944bf152c4ee838c17,
+    type: 3}
+  _baseObstaclePrefab: {fileID: 6034323269168738251, guid: 88eadf2884d926f47a518a8d56d27d0b,
+    type: 3}
+  _basePowerupPrefab: {fileID: 2430424687810311388, guid: 08f1245a9268e2e48b011e5c869910cf,
+    type: 3}
+  _bossProjectilePrefab: {fileID: -6235135953219524514, guid: e08836cfc34a2f8468dac763276c30ff,
+    type: 3}
+  _materialsLit:
+  - {fileID: 2100000, guid: f73d28e2055af9f45a9f0f83685446bd, type: 2}
+  - {fileID: 2100000, guid: 5f14006eab525b54a816a438e28acd39, type: 2}
+  - {fileID: 2100000, guid: c4ccdcce566a8ac458eb527d86f0a589, type: 2}
+  - {fileID: 2100000, guid: ebedbe5eaf1b9e04a852ab5c6fee8127, type: 2}
+  - {fileID: 2100000, guid: dfa11f9c8020b0e4cb22961fe38fb4d5, type: 2}
+  - {fileID: 2100000, guid: 8a49f046d6b8b5b4db851e63fd5d27d6, type: 2}
+  - {fileID: 2100000, guid: b5c79e932997c874bb7dd4073e5c4734, type: 2}
+  - {fileID: 2100000, guid: a7a15fca6c870f944b04d813f44ee2e9, type: 2}
+  - {fileID: 2100000, guid: ffd30b8b32780914eb8608cfdd312a22, type: 2}
+  - {fileID: 2100000, guid: 32026cb864257a946984b0f16d925370, type: 2}
+  - {fileID: 2100000, guid: efba3d7be811d764082bec05ab7d3f2c, type: 2}
+  - {fileID: 2100000, guid: 5c8dd9e5ed2e7bf4ca592ad2c1435b8c, type: 2}
+  _materialsUnlit:
+  - {fileID: 2100000, guid: abf63b26058bbef43beb98c540ae82c4, type: 2}
+  _curveAmountX: 0
+  _curveAmountY: -1
+  _powerupInfos:
+  - _powerupType: 0
+    _powerupPrefab: {fileID: 1841919254479540861, guid: 8479353a2974d4e4185d42839e8acf3c,
+      type: 3}
