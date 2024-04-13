@@ -496,7 +496,7 @@ Transform:
   m_GameObject: {fileID: 505483977}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 20.26, z: 124.2}
+  m_LocalPosition: {x: 0, y: 20.26, z: 82.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -566,7 +566,7 @@ MonoBehaviour:
   _freezeDuration: 10
   _freezeAttackTimeOffset: 1
   _freezeAttackCooldown: 4
-  _attackAreaCenter: {x: 0, y: -20, z: -60}
+  _attackAreaCenter: {x: 0, y: -20, z: -40}
   _attackAreaLength: 30
 --- !u!1 &636894070
 GameObject:
@@ -1624,7 +1624,7 @@ ParticleSystemRenderer:
   m_VertexStreams: 00010304
   m_UseCustomTrailVertexStreams: 0
   m_TrailVertexStreams: 00010304
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
@@ -7523,6 +7523,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 112.66008
+      objectReference: {fileID: 0}
+    - target: {fileID: 6267555693133007602, guid: 6fba1885a1a28734f9a1102c82e4a7d0,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6267555693133007602, guid: 6fba1885a1a28734f9a1102c82e4a7d0,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6267555693133007602, guid: 6fba1885a1a28734f9a1102c82e4a7d0,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6267555693133007602, guid: 6fba1885a1a28734f9a1102c82e4a7d0,
         type: 3}

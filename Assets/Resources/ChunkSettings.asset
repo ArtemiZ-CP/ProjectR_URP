@@ -36,8 +36,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 5c8dd9e5ed2e7bf4ca592ad2c1435b8c, type: 2}
   _materialsUnlit:
   - {fileID: 2100000, guid: abf63b26058bbef43beb98c540ae82c4, type: 2}
-  _curveAmountX: 0
-  _curveAmountY: -1
+  _curveAmountX: -1
+  _curveAmountY: -0.5
   _powerupInfos:
   - _powerupType: 0
     _powerupPrefab: {fileID: 1841919254479540861, guid: 8479353a2974d4e4185d42839e8acf3c,
