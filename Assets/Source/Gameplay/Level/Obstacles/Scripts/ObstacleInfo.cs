@@ -13,10 +13,12 @@ public class ObstacleInfo
 	public int Length;
 	public bool IsDestroyable;
 	public bool CanDisplace;
+	public bool IsSpawned;
 
 	public ObstacleInfo(Chunk chunk)
 	{
 		Chunk = chunk;
+		IsSpawned = false;
 	}
 
 	public Vector3 GetCellPosition()

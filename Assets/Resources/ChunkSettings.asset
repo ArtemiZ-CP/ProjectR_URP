@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ChunkSettings
   m_EditorClassIdentifier: 
   _roadOffset: 3.33333
-  _roadPrefab: {fileID: 4305492550736776657, guid: 93317e64bcf21f944bf152c4ee838c17,
+  _roadPrefab: {fileID: 6358310923032555847, guid: 3a43fad9a1768ff408b03c46bdd1deb3,
     type: 3}
   _baseObstaclePrefab: {fileID: 6034323269168738251, guid: 88eadf2884d926f47a518a8d56d27d0b,
     type: 3}
@@ -22,22 +22,17 @@ MonoBehaviour:
   _bossProjectilePrefab: {fileID: -6235135953219524514, guid: e08836cfc34a2f8468dac763276c30ff,
     type: 3}
   _materialsLit:
-  - {fileID: 2100000, guid: f73d28e2055af9f45a9f0f83685446bd, type: 2}
-  - {fileID: 2100000, guid: 5f14006eab525b54a816a438e28acd39, type: 2}
-  - {fileID: 2100000, guid: c4ccdcce566a8ac458eb527d86f0a589, type: 2}
-  - {fileID: 2100000, guid: ebedbe5eaf1b9e04a852ab5c6fee8127, type: 2}
-  - {fileID: 2100000, guid: dfa11f9c8020b0e4cb22961fe38fb4d5, type: 2}
-  - {fileID: 2100000, guid: 8a49f046d6b8b5b4db851e63fd5d27d6, type: 2}
-  - {fileID: 2100000, guid: b5c79e932997c874bb7dd4073e5c4734, type: 2}
-  - {fileID: 2100000, guid: a7a15fca6c870f944b04d813f44ee2e9, type: 2}
-  - {fileID: 2100000, guid: ffd30b8b32780914eb8608cfdd312a22, type: 2}
-  - {fileID: 2100000, guid: 32026cb864257a946984b0f16d925370, type: 2}
-  - {fileID: 2100000, guid: efba3d7be811d764082bec05ab7d3f2c, type: 2}
-  - {fileID: 2100000, guid: 5c8dd9e5ed2e7bf4ca592ad2c1435b8c, type: 2}
+  - {fileID: 2100000, guid: e615107f741dc3f468ae063b9e2b05cd, type: 2}
+  _materialsTextureLit:
+  - {fileID: 2100000, guid: 180efb605595eeb478dc193d5638cfa9, type: 2}
+  - {fileID: 2100000, guid: fdc0f4adc00116f49beab64b45996aa2, type: 2}
+  - {fileID: 2100000, guid: cf43fae055c92324198e14feea6d365d, type: 2}
+  _materialsSpriteUnlit:
+  - {fileID: 2100000, guid: 284e42c0bbfbe3747a7c8e9c58c80efe, type: 2}
   _materialsUnlit:
-  - {fileID: 2100000, guid: abf63b26058bbef43beb98c540ae82c4, type: 2}
-  _curveAmountX: -1
-  _curveAmountY: -0.5
+  - {fileID: 2100000, guid: 88d9113e8e3df0c41bec816ec645d3ca, type: 2}
+  _curveMultiplier: 2
+  _curveDirection: {x: 0, y: -1}
   _powerupInfos:
   - _powerupType: 0
     _powerupPrefab: {fileID: 1841919254479540861, guid: 8479353a2974d4e4185d42839e8acf3c,

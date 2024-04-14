@@ -13,9 +13,11 @@ public class ChunkSettings : ScriptableObject
 	[SerializeField] private BossProjectile _bossProjectilePrefab;
 	[Header("Curve World")]
 	[SerializeField] private List<Material> _materialsLit;
+	[SerializeField] private List<Material> _materialsTextureLit;
+	[SerializeField] private List<Material> _materialsSpriteUnlit;
 	[SerializeField] private List<Material> _materialsUnlit;
-	[SerializeField] private float _curveAmountX;
-	[SerializeField] private float _curveAmountY;
+	[SerializeField] private float _curveMultiplier;
+	[SerializeField] private Vector2 _curveDirection;
 	[Header("Powerups")]
 	[SerializeField] private List<PowerupInfo> _powerupInfos = new();
 
@@ -33,36 +35,31 @@ public class ChunkSettings : ScriptableObject
 
 	private void SetShader()
 	{
-		if (_materialsLit.Count != 0)
+		SetShader(_materialsLit, "Shader Graphs/Curved World Lit");
+		SetShader(_materialsTextureLit, "Shader Graphs/Curved World Texture Lit");
+		SetShader(_materialsSpriteUnlit, "Shader Graphs/Curved World Sprite Unlit");
+		SetShader(_materialsUnlit, "Shader Graphs/Curved World Unlit");
+	}
+
+	private void SetShader(List<Material> materials, string path)
+	{
+		if (materials == null || materials.Count == 0)
 		{
-			foreach (var material in _materialsLit)
-			{
-				if (material == null)
-				{
-					continue;
-				}
-
-				material.shader = Shader.Find("Shader Graphs/Curved World Lit");
-
-				material.SetFloat("_Curve_X", _curveAmountX);
-				material.SetFloat("_Curve_Y", _curveAmountY);
-			}
+			return;
 		}
 
-		if (_materialsUnlit.Count != 0)
+		foreach (var material in materials)
 		{
-			foreach (var material in _materialsUnlit)
+			if (material == null)
 			{
-				if (material == null)
-				{
-					continue;
-				}
-
-				material.shader = Shader.Find("Shader Graphs/Curved World Unlit");
-
-				material.SetFloat("_Curve_X", _curveAmountX);
-				material.SetFloat("_Curve_Y", _curveAmountY);
+				continue;
 			}
+
+			material.shader = Shader.Find(path);
+
+			material.SetFloat("_Curve_X", _curveDirection.normalized.x);
+			material.SetFloat("_Curve_Y", _curveDirection.normalized.y);
+			material.SetFloat("_Curve", _curveMultiplier);
 		}
 	}
 }

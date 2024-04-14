@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
 
 [ExecuteAlways, RequireComponent(typeof(Chunk))]
@@ -97,6 +98,13 @@ public class ChunkGenerator : MonoBehaviour
 
 	public void GenerateObstaclesWithRandomSeed(int roadIndex)
 	{
+		GenerateRandomSeed();
+
+		GenerateChunk(roadIndex);
+	}
+
+	public void GenerateRandomSeed()
+	{
 		if (_fixChanceToChangeRoad == false)
 		{
 			_chanceToChangeRoad = Random.Range(_chanceToChangeRoadMin, _chanceToChangeRoadMax);
@@ -121,8 +129,6 @@ public class ChunkGenerator : MonoBehaviour
 		{
 			_chanceToSpawnFullObstacle = Random.Range(_chanceToSpawnFullObstacleMin, _chanceToSpawnFullObstacleMax);
 		}
-
-		GenerateChunk(roadIndex);
 	}
 
 	public void GenerateObstacles()
@@ -132,12 +138,35 @@ public class ChunkGenerator : MonoBehaviour
 
 	public void GenerateChunk(int roadIndex)
 	{
+		FillMap(roadIndex);
+		SpawnObstacles();
+
+		_currentChunk.Reload();
+	}
+
+	public void FillMap(int roadIndex)
+	{
 		_startRoadIndex = roadIndex;
 
 		DestroyAllObstacles();
 		InitializeGrid();
 		_endRoadIndex = FillGrid(roadIndex);
-		SpawnObstacles();
+	}
+
+	public void SpawnObstacles(float z)
+	{
+		for (int line = 0; line < LinesCount; line++)
+		{
+			for (int position = 0; position < ChunkLength;)
+			{
+				if (_chunkMap[line, position].IsSpawned == false && GetCellPosition(line, position).z < z)
+				{
+					InstantiateObstacle(line, position);
+				}
+
+				position += _chunkMap[line, position].Length;
+			}
+		}
 
 		_currentChunk.Reload();
 	}
@@ -638,28 +667,32 @@ public class ChunkGenerator : MonoBehaviour
 		{
 			for (int position = 0; position < ChunkLength;)
 			{
-				position += InstantiateObstacle(line, position);
+				InstantiateObstacle(line, position);
+				position += _chunkMap[line, position].Length;
 			}
 		}
 	}
 
-	private int InstantiateObstacle(int line, int position)
+	private void InstantiateObstacle(int line, int position)
 	{
 		Vector3 obstaclePosition = GetCellPosition(line, position);
 
 		BaseObstacle baseObstacle;
 
+		if (Application.isPlaying)
+		{
+			baseObstacle = Instantiate(_baseObstaclePrefab, obstaclePosition, Quaternion.identity, _obstacleParent);
+		}
+		else
+		{
 #if UNITY_EDITOR
-		baseObstacle = (BaseObstacle)PrefabUtility.InstantiatePrefab(_baseObstaclePrefab, _obstacleParent);
-		baseObstacle.transform.position = obstaclePosition;
-#else
-		baseObstacle = Instantiate(_baseObstaclePrefab, obstaclePosition, Quaternion.identity, _obstacleParent);
+			baseObstacle = (BaseObstacle)PrefabUtility.InstantiatePrefab(_baseObstaclePrefab, _obstacleParent);
+			baseObstacle.transform.position = obstaclePosition;
 #endif
+		}
 
 		_chunkMap[line, position].BaseObstacle = baseObstacle;
 		baseObstacle.Init(_chunkMap[line, position]);
-
-		return _chunkMap[line, position].Length;
 	}
 
 	#endregion

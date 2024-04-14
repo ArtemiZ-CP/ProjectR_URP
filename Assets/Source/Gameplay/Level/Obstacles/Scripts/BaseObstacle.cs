@@ -41,6 +41,7 @@ public class BaseObstacle : BaseObject
 		_cellType = obstacleInfo.CellType;
 		_statusEffect = obstacleInfo.StatusEffect;
 		_statusEffectDuration = obstacleInfo.StatusEffectDuration;
+		obstacleInfo.IsSpawned = true;
 
 		return Init();
 	}

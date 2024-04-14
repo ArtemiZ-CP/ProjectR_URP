@@ -13,6 +13,11 @@ public class SelectRandom : MonoBehaviour
 
 	private void SelectRandomMesh()
 	{
+		if (_meshes == null || _meshes.Count == 0)
+		{
+			return;
+		}
+
 		foreach (var mesh in _meshes)
 		{
 			mesh.SetActive(false);

@@ -13,8 +13,6 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] private CapsuleCollider _playerCollider;
 	[SerializeField] private CapsuleCollider _baseCapsuleCollider;
 	[SerializeField] private CapsuleCollider _lowCapsuleCollider;
-	[SerializeField] private MeshRenderer _baseCapsuleColliderMesh;
-	[SerializeField] private MeshRenderer _lowCapsuleColliderMesh;
 	[SerializeField] private bool _showCollider;
 
 	public event Action<float> OnTumble;
@@ -86,17 +84,6 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Start()
 	{
-		if (_showCollider)
-		{
-			_baseCapsuleColliderMesh.gameObject.SetActive(true);
-			_lowCapsuleColliderMesh.gameObject.SetActive(true);
-		}
-		else
-		{
-			_baseCapsuleColliderMesh.gameObject.SetActive(false);
-			_lowCapsuleColliderMesh.gameObject.SetActive(false);
-		}
-
 		Vector3 playerStartPosition = _roads[_targetRoadIndex].PlayerLineTransform.position;
 		transform.position = new Vector3(playerStartPosition.x, transform.position.y, playerStartPosition.z);
 		_cameraFollow.CameraPivotTransform.position = _roads[_targetRoadIndex].CameraTransform.position;

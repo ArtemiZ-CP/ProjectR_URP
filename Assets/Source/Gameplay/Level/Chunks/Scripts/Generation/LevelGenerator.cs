@@ -54,6 +54,14 @@ public class LevelGenerator : MonoBehaviour
 			}
 		}
 
+		foreach (Chunk chunk in _spawnedChunks)
+		{
+			if (chunk.ChunkGenerator.ChunkMap != null)
+			{
+				chunk.ChunkGenerator.SpawnObstacles(_distanceToSpawnNewChunk + _playerMovement.transform.position.z);
+			}
+		}
+
 		DestroyPastObjects();
 	}
 
@@ -121,25 +129,25 @@ public class LevelGenerator : MonoBehaviour
 
 	private int SpawnGeneralChunk(int roadIndex)
 	{
-		ChunkGenerator chunkGenerator;
+		int endRoadIndex;
 
 		if (TryGetRandomChunk(_generalChunks, roadIndex, out Chunk chunk))
 		{
-			chunkGenerator = SpawnNextChunk(chunk).ChunkGenerator;
+			endRoadIndex = SpawnNextChunk(chunk).ChunkGenerator.EndRoadIndex;
 		}
 		else
 		{
-			chunkGenerator = SpawnNextChunk(_randomChunk).ChunkGenerator;
-			chunkGenerator.GenerateObstaclesWithRandomSeed(roadIndex);
+			endRoadIndex = SpawnRandomChunk(roadIndex);
 		}
 
-		return chunkGenerator.EndRoadIndex;
+		return endRoadIndex;
 	}
 
 	private int SpawnRandomChunk(int roadIndex)
 	{
 		ChunkGenerator chunkGenerator = SpawnNextChunk(_randomChunk).ChunkGenerator;
-		chunkGenerator.GenerateObstaclesWithRandomSeed(roadIndex);
+		chunkGenerator.GenerateRandomSeed();
+		chunkGenerator.FillMap(roadIndex);
 		return chunkGenerator.EndRoadIndex;
 	}
 
